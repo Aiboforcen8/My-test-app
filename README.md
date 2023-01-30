@@ -1,2 +1,2 @@
-# My-tetst-app
+# My-test-app
 Test task
