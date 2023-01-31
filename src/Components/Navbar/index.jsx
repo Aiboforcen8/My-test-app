@@ -5,10 +5,15 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-
+import { useNavigate } from "react-router-dom";
 
 function Navigation() {
- const isAuth = true
+
+ const navigate = useNavigate()
+
+ const handleNavigate = (url) => {
+  navigate(url)
+ }
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -26,8 +31,8 @@ function Navigation() {
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           </Typography>
-          <Button href='/login' color="inherit">Профиль</Button>
-          <Button href='/registration' color="inherit">Регистрация</Button>
+          <Button onClick={() => handleNavigate('profile')} color="inherit">Профиль</Button>
+          <Button onClick={() => handleNavigate('registration')} color="inherit">Регистрация</Button>
       
         </Toolbar>
       </AppBar>

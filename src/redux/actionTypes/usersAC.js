@@ -1,0 +1,2 @@
+const GET_ALL_USERS = 'GET_ALL_USERS'
+const GET_USER = 'GET_USER'
