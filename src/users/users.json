@@ -1,6 +1,7 @@
 [
-  {"login": "jeka",
-"password": "123456"},
-  {"login": "lexa",
-"password": "12345678"}
+  { "login": "test", "password": "123" },
+  { "login": "alexander", "password": "01234" },
+  { "login": "ivan", "password": "abv" },
+  { "login": "anton", "password": "zxc" },
+  { "login": "alexey", "password": "qwe" }
 ]

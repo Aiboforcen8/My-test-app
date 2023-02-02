@@ -1,17 +1,16 @@
-import GET_USER from "../actionTypes/usersAC"
-import GET_ALL_USERS from "../actionTypes/usersAC"
+import { GET_ALL_USERS, GET_USER } from "../actionTypes/usersAT";
 
-const initialState = { users : []}
+const initialState = { users: [] };
 
 export const usersReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_USER: {
+    case GET_USER:
+      return {};
 
-    }
-    case GET_ALL_USERS: {
+    case GET_ALL_USERS:
+      return { ...state, users: [...state.users, ...action.payload] };
 
-    }
-    default: 
-      return state
+    default:
+      return state;
   }
-}
+};
