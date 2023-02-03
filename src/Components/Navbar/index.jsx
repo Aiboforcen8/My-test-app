@@ -16,12 +16,14 @@ function Navigation() {
   const dispatch = useDispatch();
   const { isAuth, setIsAuth } = useContext(AuthContext);
 
+  const navigateHandler = (endpoint) => navigate(endpoint);
+
   const handleLogoOut = () => {
     localStorage.setItem("isAuth", false);
     localStorage.removeItem("login");
     setIsAuth(false);
     dispatch(checkSessionAC());
-    navigate("/");
+    navigateHandler("/");
   };
 
   return (
@@ -29,7 +31,7 @@ function Navigation() {
       <AppBar position="static">
         <Toolbar>
           <IconButton
-            onClick={() => navigate("/")}
+            onClick={() => navigateHandler("/")}
             size="large"
             edge="start"
             color="inherit"
@@ -43,13 +45,16 @@ function Navigation() {
             component="div"
             sx={{ flexGrow: 1 }}
           ></Typography>
-          <Button onClick={() => navigate("profile")} color="inherit">
+          <Button onClick={() => navigateHandler("profile")} color="inherit">
             Профиль
           </Button>
-          <Button onClick={() => navigate("login")} color="inherit">
+          <Button onClick={() => navigateHandler("login")} color="inherit">
             Логин
           </Button>
-          <Button onClick={() => navigate("registration")} color="inherit">
+          <Button
+            onClick={() => navigateHandler("registration")}
+            color="inherit"
+          >
             Регистрация
           </Button>
           {isAuth && (
