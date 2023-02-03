@@ -32,6 +32,7 @@ export default function SignUp() {
     }
   }, [isAuth, navigate]);
 
+  const navigateHandler = () => navigate("/login");
   const handleRegistration = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -49,6 +50,8 @@ export default function SignUp() {
     }
     if (validatePasswords) {
       setPasswordError("Введенные пароли не совпадают");
+    } else {
+      setPasswordError("");
     }
     if (!validateLogin && !validatePasswords) {
       setSuccessRegistration(true);
@@ -117,14 +120,12 @@ export default function SignUp() {
                 />
               </Grid>
             </Grid>
-            {successRegistration ? (
-              <Typography color="green">{passwordError}</Typography>
-            ) : (
-              <Typography color="red">{passwordError}</Typography>
-            )}
+            <Typography color={successRegistration ? "green" : "red"}>
+              {passwordError}
+            </Typography>
             {successRegistration ? (
               <Button
-                onClick={() => navigate("/login")}
+                onClick={navigateHandler}
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
@@ -147,7 +148,7 @@ export default function SignUp() {
                   <Typography>Уже есть аккаунт?</Typography>
                   <Link
                     style={{ cursor: "pointer", fontSize: "16px" }}
-                    onClick={() => navigate("/login")}
+                    onClick={navigateHandler}
                     variant="body1"
                   >
                     Войти
